@@ -1,0 +1,15 @@
+In the firewallSetup.c
+    1.There are comments about if to follow a symbolic link
+    Because the basic test script added two program of symbolic link
+    So if using the follow one, there would be an error
+    (the real path of the progran is add into the list in the kernel)
+In the firewallExtension.c
+    1. The rule list is the struct of below
+     -port1---path1
+           |--path2
+     -port2---path1
+           |--path2
+            ...
+     So the order of path output may be different form the original input
+    2. Because the dupliacted rules in the list does not affect the correct running of the firewall   
+       They are not considered a syntax error

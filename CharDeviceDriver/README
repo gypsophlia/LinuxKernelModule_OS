@@ -1,0 +1,1 @@
+1. I consider the message is a message with '\r' ending, so there is a '\r' at the end of each message. This may cause the number of actual character stored in the memory is less than the maxium size.

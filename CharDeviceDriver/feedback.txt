@@ -1,0 +1,53 @@
+basic_testcase:
+ load kernel driver:	ok
+ mknod:			ok
+ ls /dev/opsysmem:	ok
+ write test:		ok
+ read test:		ok
+ unload module:		ok
+
+test_boundaries:
+ load kernel driver:	ok
+ mknod:			ok
+ sending msg 4000 B:	ok
+ sending msg 4095 B:	ok
+ sending msg 4097 B:	ok
+ sending msg 5000 B:	ok
+ reading message:	ok
+ reading message:	ok
+ checking 2MB:		timeout
+ unload module:		ok
+
+test_ioctl:
+ load kernel driver:	ok
+ mknod:			ok
+ ioctl 3MB:		ok
+ checking 3MB:		timeout
+ unload module:		ok
+
+test_bonus_blocking:
+ load kernel driver:	ok
+ mknod:			ok
+ bonus (block reader):	seems like bonus
+ unload module:		
+test_concurrency:
+ok
+ load kernel driver:	ok
+ mknod:			ok
+ concurrency:
+ (threads finished)
+ check concurrency:	ok
+ unload module:		ok
+
+
+5 concurrency: ok
+5 ioctl: ok, you implemented your own semaphore here, please use the kernel locking instead
+  of re-implementing locks
+3 read/write: ok
+2 open/close: ok
+5 handling list of msgs: ok
+5 bonus
+
+Points: 25
+
+

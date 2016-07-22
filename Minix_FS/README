@@ -1,0 +1,2 @@
+1. Spece is not allowed in the <path>
+2. if <ino> is 0, <path> should also be given either the root of the minix file system or a specific file in the minix file system

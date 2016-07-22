@@ -1,0 +1,41 @@
+exec Makefile:	ok
+
+BASIC TEST:
+loading driver:			ok
+write rules:			ok
+list rules:			ok
+unloading driver:		ok
+
+FAILED RULES TEST:
+loading driver:			ok
+write rules:			ok
+list rules:			ok
+wrong rules (no exe):
+write rules:			ok (client returned error as expected)
+list rules:			ok
+illformed rules:
+write rules:			ok (client returned error as expected)
+list rules:			ok
+unloading driver:		ok
+
+OVERWRITE/CONNECT TEST:
+loading driver:			ok
+write rules:			ok
+list rules:			ok
+connect (22, exp: connect):	ok
+overwriting rules:
+write rules:			ok
+list rules:			ok
+connect (21, exp: connect):	ok
+connect (22, exp: block):	ok
+unloading driver:		ok
+
+5 extending firewall: works, looks good
+5 handling list of firewall rules: write/list works, seems fine
+5 concurrency: mutex + semaphore, ok
+5 user space program: port should also be checked for < MAX_PORT, sscanf: 300s for path is nice
+  (however it should be 299s ;) sscanf is appending \0)
+
+Points: 20
+
+
